@@ -1,24 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import RModal from "./rModal/rModal";
 
-function App() {
+const App = () => {
+
+  const [isModalOpen, setModalOpen] = useState(false);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <button onClick={() => setModalOpen(true)}>Open Modal</button>
+
+        {isModalOpen
+        ? <RModal
+          isModalOpen={isModalOpen}
+          setModalOpen = {setModalOpen}
+          maxWidth="500px"
+          padding="35px 20px">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae architecto, corporis voluptas iste sunt ad ea ducimus suscipit amet vero? Delectus optio maxime veniam quisquam ipsa minus, quae tempore quis?
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae architecto, corporis voluptas iste sunt ad ea ducimus suscipit amet vero? Delectus optio maxime veniam quisquam ipsa minus, quae tempore quis?
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae architecto, corporis voluptas iste sunt ad ea ducimus suscipit amet vero? Delectus optio maxime veniam quisquam ipsa minus, quae tempore quis?
+        </RModal>
+        : null
+        }
+
+
+
     </div>
   );
 }
