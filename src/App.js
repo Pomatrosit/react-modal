@@ -13,6 +13,10 @@ const App = () => {
         ? <RModal
           isModalOpen={isModalOpen}
           setModalOpen = {setModalOpen}
+          overlaySpeed = {300}
+          modalSpeed = {200}
+          timingFunction = "ease-in"
+          animate = "fromDown"
           maxWidth="500px"
           padding="35px 20px">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae architecto, corporis voluptas iste sunt ad ea ducimus suscipit amet vero? Delectus optio maxime veniam quisquam ipsa minus, quae tempore quis?
@@ -21,8 +25,6 @@ const App = () => {
         </RModal>
         : null
         }
-
-
 
     </div>
   );
