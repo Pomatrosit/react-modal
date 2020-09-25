@@ -1,5 +1,5 @@
 import React, {useState, useRef} from "react";
-import "./rModal.css";
+import "./rModal.css"
 
 const Modal = ({children,
                 isModalOpen,
@@ -15,15 +15,14 @@ const Modal = ({children,
   const overlay = useRef(null);
   const modal = useRef(null);
 
-  useState(() => {
+  const openHandler = () => {
     setTimeout(() => {
       if (overlay.current) overlay.current.classList.add("animate-overlay");
     }, 0);
     setTimeout(() => {
       if (modal.current) modal.current.classList.add("animate-modal");
     }, overlaySpeed);
-  }, []);
-
+  }
 
   const closeHandler = () => {
     if (modal.current) {
@@ -41,6 +40,10 @@ const Modal = ({children,
       setModalOpen(false);
     }, overlaySpeed + modalSpeed);
   }
+
+  useState(() => {
+    openHandler();
+  }, []);
 
   return(
     <>
@@ -98,51 +101,25 @@ const Modal = ({children,
         width:0px;
       }
 
-      @keyframes opacityOverlayIn{
-        from{opacity:0}
-        to{opacity:1}
-      }
-
-      @keyframes opacityOverlayOut{
-        from{opacity:1}
-        to{opacity:0}
-      }
-
-      @keyframes fromDownIn{
-        from{opacity:0; transform:translateY(50px)}
-        to{opacity:1;transform:translateY(0px)}
-      }
-      @keyframes fromDownOut{
-        from{opacity:1;transform:translateY(0px)}
-        to{opacity:0; transform:translateY(50px)}
-      }
-
-      @keyframes fromTopIn{
-        from{opacity:0; transform:translateY(-50px)}
-        to{opacity:1;transform:translateY(0px)}
-      }
-      @keyframes fromTopOut{
-        from{opacity:1;transform:translateY(0px)}
-        to{opacity:0; transform:translateY(-50px)}
-      }
-
       .animate-overlay{
+        -webkit-animation: opacityOverlayIn ${overlaySpeed}ms linear forwards;
         animation: opacityOverlayIn ${overlaySpeed}ms linear forwards;
       }
 
       .animate-overlay-out{
+        -webkit-animation: opacityOverlayOut ${overlaySpeed}ms linear forwards;
         animation: opacityOverlayOut ${overlaySpeed}ms linear forwards;
       }
 
       .animate-modal{
+        -webkit-animation: ${animate}In ${modalSpeed}ms ${timingFunction} forwards;
         animation: ${animate}In ${modalSpeed}ms ${timingFunction} forwards;
       }
 
       .animate-modal-out{
+        -webkit-animation: ${animate}Out ${modalSpeed}ms ${timingFunction} forwards;
         animation: ${animate}Out ${modalSpeed}ms ${timingFunction} forwards;
       }
-
-
 
     `}</style>
     </>

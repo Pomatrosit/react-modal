@@ -8,12 +8,8 @@ React-компонент модального окна.
 3.maxWidth - максимальная ширина в абсолютных величинах
 4.padding - внутренние отступы
 5.timingFunction - функция анимации (формула Безье или зарезервированные слова в css)
-6.animate - тип анимации (fromDown, fromTop)
+6.animate - тип анимации (fromDown, fromTop, jelly, skew)
 
-Пример.
-
-import React, {useState} from 'react';
-import RModal from "./rModal/rModal";
 
 const App = () => {
 
@@ -41,7 +37,5 @@ const App = () => {
         }
 
     </div>
-  );
+  )
 }
-
-export default App;

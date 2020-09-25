@@ -14,9 +14,9 @@ const App = () => {
           isModalOpen={isModalOpen}
           setModalOpen = {setModalOpen}
           overlaySpeed = {300}
-          modalSpeed = {200}
+          modalSpeed = {700}
           timingFunction = "ease-in"
-          animate = "fromDown"
+          animate = "skew"
           maxWidth="500px"
           padding="35px 20px">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae architecto, corporis voluptas iste sunt ad ea ducimus suscipit amet vero? Delectus optio maxime veniam quisquam ipsa minus, quae tempore quis?
